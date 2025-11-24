@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="icon" href="logo.jpg" type="image/jpeg">
+    
+    <title>$mFLOKI - The Saga</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Montserrat:wght@400;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- RESET & CORE --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: #0d0221;
+            /* Fundo Roxo Profundo */
+            background-image: linear-gradient(to bottom, #0d0221, #240046);
+            color: #e0e0e0;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* VARIÁVEIS DE COR */
+        :root {
+            --monad-purple: #8338ec;
+            --viking-gold: #ffbd00;
+            --ice-blue: #00b4d8;
+            --dark-void: #05010a;
+        }
+
+        /* TIPOGRAFIA ÉPICA */
+        h1, h2, h3 {
+            font-family: 'Cinzel', serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--viking-gold);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- HEADER COMPACTO --- */
+        header {
+            padding: 20px 0;
+            border-bottom: 2px solid var(--monad-purple);
+            background: rgba(13, 2, 33, 0.9);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .brand-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid var(--viking-gold);
+        }
+
+        .brand h1 { font-size: 1.5rem; margin: 0; }
+
+        /* --- BUTTONS --- */
+        .btn {
+            padding: 10px 25px;
+            font-weight: 800;
+            font-family: 'Cinzel', serif;
+            text-decoration: none;
+            border: 2px solid var(--monad-purple);
+            transition: 0.3s;
+            text-transform: uppercase;
+            color: var(--monad-purple);
+            margin-left: 10px;
+            font-size: 0.9rem;
+        }
+
+        .btn-buy {
+            background-color: var(--viking-gold);
+            color: var(--dark-void);
+            border-color: var(--viking-gold);
+            box-shadow: 0 0 15px rgba(255, 189, 0, 0.3);
+        }
+        
+        .btn-buy:hover { background-color: #fff; transform: scale(1.05); }
+        .btn:hover { background-color: var(--monad-purple); color: #fff; }
+
+
+        /* --- NARRATIVE SECTIONS (O CORAÇÃO DO SITE) --- */
+        .saga-section {
+            padding: 80px 0;
+            border-bottom: 1px solid rgba(131, 56, 236, 0.2);
+        }
+
+        /* Alterna o fundo das seções */
+        .saga-section:nth-child(even) {
+            background: rgba(131, 56, 236, 0.05);
+        }
+
+        .saga-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        /* Alterna a ordem imagem/texto */
+        .saga-section:nth-child(even) .saga-content {
+            flex-direction: row-reverse;
+        }
+
+        .saga-text {
+            flex: 1;
+        }
+
+        .saga-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(131, 56, 236, 0.5);
+        }
+
+        .saga-text p {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-bottom: 25px;
+        }
+
+        .saga-image-box {
+            flex: 1;
+            position: relative;
+        }
+
+        .saga-img {
+            width: 100%;
+            border-radius: 20px;
+            border: 4px solid var(--monad-purple);
+            box-shadow: 0 0 40px rgba(131, 56, 236, 0.4);
+            transition: transform 0.3s;
+        }
+
+        .saga-img:hover { transform: scale(1.02); }
+
+
+        /* --- FOOTER & CA --- */
+        .ca-container {
+            text-align: center;
+            margin: 80px 0;
+            cursor: pointer;
+        }
+        
+        .ca-box {
+            background: #000;
+            border: 2px dashed var(--viking-gold);
+            padding: 20px;
+            font-family: monospace;
+            color: var(--monad-purple);
+            word-break: break-all;
+            display: inline-block;
+            font-size: 1.2rem;
+        }
+
+        footer {
+            background: var(--dark-void);
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 768px) {
+            .saga-content, .saga-section:nth-child(even) .saga-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .header-content { flex-direction: column; gap: 20px; }
+            .saga-text h2 { font-size: 2rem; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <div class="brand">
+                <img src="logo.jpg" alt="Logo" class="brand-logo">
+                <h1>$mFLOKI</h1>
+            </div>
+            <nav>
+                <a href="https://x.com/MonadFloki" target="_blank" class="btn">TWITTER</a>
+                <a href="https://t.me/monadfloki" target="_blank" class="btn">TELEGRAM</a>
+                <a href="#" class="btn btn-buy">BUY TOKEN</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="saga-section">
+            <div class="container saga-content">
+                <div class="saga-text">
+                    <h2>PART I: THE ARRIVAL</h2>
+                    <p>
+                        The portal has opened. Escaping the slow, expensive chains of the past, Monad Floki arrives in the new purple dimension. The conquest of Monad begins now.
+                    </p>
+                </div>
+                <div class="saga-image-box">
+                    <img src="1.png" alt="Floki Arriving in Space Rocket" class="saga-img">
+                </div>
+            </div>
+        </section>
+
+        <section class="saga-section">
+            <div class="container saga-content">
+                <div class="saga-text">
+                    <h2>PART II: THE WAR ROOM</h2>
+                    <p>
+                        We build constantly. Surrounded by allies and meme legends, the strategy is being planned. The raiders are gathering in the telegram channels.
+                    </p>
+                </div>
+                <div class="saga-image-box">
+                    <img src="2.png" alt="Floki in Office with Memes" class="saga-img">
+                </div>
+            </div>
+        </section>
+
+        <section class="saga-section">
+            <div class="container saga-content">
+                <div class="saga-text">
+                    <h2>PART III: GLOBAL TAKEOVER</h2>
+                    <p>
+                        The signal can no longer be ignored. The biggest players in the world are noticing the purple energy. Monad Floki becomes inevitable.
+                    </p>
+                </div>
+                <div class="saga-image-box">
+                    <img src="3.png" alt="Floki with Elon and Trump" class="saga-img">
+                </div>
+            </div>
+        </section>
+
+        <section class="saga-section">
+            <div class="container saga-content">
+                <div class="saga-text">
+                    <h2>PART IV: FULL SEND</h2>
+                    <p>
+                        The charts only go one way. We prefer our rides purple and fast. Buckle up, raiders. We are leaving the atmosphere.
+                    </p>
+                </div>
+                <div class="saga-image-box">
+                    <img src="4.png" alt="Floki in Purple Car" class="saga-img">
+                </div>
+            </div>
+        </section>
+
+        <section class="saga-section">
+            <div class="container saga-content">
+                <div class="saga-text">
+                    <h2>PART V: VALHALLA</h2>
+                    <p>
+                        The destination for all true diamond hands. When the raid is over, we feast. This is the Monad lifestyle.
+                    </p>
+                </div>
+                <div class="saga-image-box">
+                    <img src="5.png" alt="Floki on Yacht Party" class="saga-img">
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="ca-container" onclick="copyCA()">
+                <h3 style="margin-bottom: 20px;">OFFICIAL CONTRACT ADDRESS (CLICK TO COPY)</h3>
+                <div class="ca-box" id="ca-text">0x0000000000000000000000000000000000000000</div>
+                <p id="copy-msg" style="color: var(--viking-gold); margin-top: 10px; opacity: 0; transition: 0.3s;">COPIED TO CLIPBOARD!</p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>$mFLOKI IS A MEME COIN FOR ENTERTAINMENT PURPOSES ONLY.</p>
+            <p>&copy; 2025 THE MONAD VIKINGS.</p>
+        </div>
+    </footer>
+
+    <script>
+        function copyCA() {
+            const caText = document.getElementById('ca-text').innerText;
+            navigator.clipboard.writeText(caText);
+            
+            const msg = document.getElementById('copy-msg');
+            msg.style.opacity = '1';
+            setTimeout(() => {
+                msg.style.opacity = '0';
+            }, 2000);
+        }
+    </script>
+
+</body>
+</html>
