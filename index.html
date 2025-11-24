@@ -6,7 +6,7 @@
     
     <link rel="icon" href="logo.jpg" type="image/jpeg">
     
-    <title>$mFLOKI - The Saga</title>
+    <title>$PURSHI - The Purple Saga</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,21 +17,69 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            background-color: #0d0221;
-            /* Fundo Roxo Profundo */
+            background-color: #0d0221; /* Fundo Roxo Profundo */
             background-image: linear-gradient(to bottom, #0d0221, #240046);
             color: #e0e0e0;
             font-family: 'Montserrat', sans-serif;
-            overflow-x: hidden;
+            overflow-x: hidden; /* Esconde scroll horizontal */
             line-height: 1.6;
+        }
+
+        /* Oculta o scroll enquanto carrega */
+        body.loading {
+            overflow: hidden;
         }
 
         /* VARIÁVEIS DE COR */
         :root {
             --monad-purple: #8338ec;
+            --monad-light: #a663cc;
             --viking-gold: #ffbd00;
             --ice-blue: #00b4d8;
             --dark-void: #05010a;
+        }
+
+        /* --- LOADING SCREEN (MONAD STYLE) --- */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--dark-void);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transition: opacity 0.5s ease-out, visibility 0.5s;
+        }
+
+        .monad-logo-svg {
+            width: 120px;
+            height: 120px;
+            fill: var(--monad-purple);
+            animation: pulse-glow 2s infinite ease-in-out;
+        }
+
+        .loading-text {
+            margin-top: 20px;
+            font-family: 'Cinzel', serif;
+            color: var(--monad-light);
+            letter-spacing: 4px;
+            font-size: 0.8rem;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0% { transform: scale(1); filter: drop-shadow(0 0 5px var(--monad-purple)); }
+            50% { transform: scale(1.1); filter: drop-shadow(0 0 20px var(--monad-purple)); }
+            100% { transform: scale(1); filter: drop-shadow(0 0 5px var(--monad-purple)); }
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
         }
 
         /* TIPOGRAFIA ÉPICA */
@@ -76,6 +124,7 @@
             height: 50px;
             border-radius: 50%;
             border: 2px solid var(--viking-gold);
+            object-fit: cover;
         }
 
         .brand h1 { font-size: 1.5rem; margin: 0; }
@@ -92,6 +141,7 @@
             color: var(--monad-purple);
             margin-left: 10px;
             font-size: 0.9rem;
+            display: inline-block;
         }
 
         .btn-buy {
@@ -105,13 +155,12 @@
         .btn:hover { background-color: var(--monad-purple); color: #fff; }
 
 
-        /* --- NARRATIVE SECTIONS (O CORAÇÃO DO SITE) --- */
+        /* --- NARRATIVE SECTIONS --- */
         .saga-section {
             padding: 80px 0;
             border-bottom: 1px solid rgba(131, 56, 236, 0.2);
         }
 
-        /* Alterna o fundo das seções */
         .saga-section:nth-child(even) {
             background: rgba(131, 56, 236, 0.05);
         }
@@ -122,7 +171,6 @@
             gap: 50px;
         }
 
-        /* Alterna a ordem imagem/texto */
         .saga-section:nth-child(even) .saga-content {
             flex-direction: row-reverse;
         }
@@ -193,22 +241,36 @@
             }
             .header-content { flex-direction: column; gap: 20px; }
             .saga-text h2 { font-size: 2rem; }
+            nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+            .btn { margin: 0; }
         }
 
     </style>
 </head>
-<body>
+<body class="loading">
+
+    <div id="preloader">
+        <svg class="monad-logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 80 L20 20 L50 50 L80 20 L80 80 M35 80 L35 45 L50 60 L65 45 L65 80" 
+                  stroke="currentColor" 
+                  stroke-width="8" 
+                  fill="none" 
+                  stroke-linecap="round" 
+                  stroke-linejoin="round"/>
+        </svg>
+        <div class="loading-text">LOADING MONAD ECOSYSTEM...</div>
+    </div>
 
     <header>
         <div class="container header-content">
             <div class="brand">
-                <img src="logo.jpg" alt="Logo" class="brand-logo">
-                <h1>$mFLOKI</h1>
+                <img src="logo.jpg" alt="Purple Shiba Logo" class="brand-logo">
+                <h1>$PURSHI</h1>
             </div>
             <nav>
-                <a href="https://x.com/MonadFloki" target="_blank" class="btn">TWITTER</a>
-                <a href="https://t.me/monadfloki" target="_blank" class="btn">TELEGRAM</a>
-                <a href="#" class="btn btn-buy">BUY TOKEN</a>
+                <a href="https://x.com/PurpleShiba" target="_blank" class="btn">TWITTER</a>
+                <a href="https://t.me/purpleshiba" target="_blank" class="btn">TELEGRAM</a>
+                <a href="#" class="btn btn-buy">BUY $PURSHI</a>
             </nav>
         </div>
     </header>
@@ -218,13 +280,13 @@
         <section class="saga-section">
             <div class="container saga-content">
                 <div class="saga-text">
-                    <h2>PART I: THE ARRIVAL</h2>
+                    <h2>PART I: THE PURPLE AWAKENING</h2>
                     <p>
-                        The portal has opened. Escaping the slow, expensive chains of the past, Monad Floki arrives in the new purple dimension. The conquest of Monad begins now.
+                        The portal has opened. Escaping the chains of the old world, <strong>Purple Shiba</strong> arrives in the new dimension. The conquest of the Monad ecosystem begins now.
                     </p>
                 </div>
                 <div class="saga-image-box">
-                    <img src="1.png" alt="Floki Arriving in Space Rocket" class="saga-img">
+                    <img src="1.png" alt="Purple Shiba Arriving" class="saga-img">
                 </div>
             </div>
         </section>
@@ -232,13 +294,13 @@
         <section class="saga-section">
             <div class="container saga-content">
                 <div class="saga-text">
-                    <h2>PART II: THE WAR ROOM</h2>
+                    <h2>PART II: THE PACK ASSEMBLES</h2>
                     <p>
-                        We build constantly. Surrounded by allies and meme legends, the strategy is being planned. The raiders are gathering in the telegram channels.
+                        We build constantly. Surrounded by allies and meme legends, the strategy is being planned. The $PURSHI raiders are gathering in the private channels.
                     </p>
                 </div>
                 <div class="saga-image-box">
-                    <img src="2.png" alt="Floki in Office with Memes" class="saga-img">
+                    <img src="2.png" alt="Shiba Strategy" class="saga-img">
                 </div>
             </div>
         </section>
@@ -248,11 +310,11 @@
                 <div class="saga-text">
                     <h2>PART III: GLOBAL TAKEOVER</h2>
                     <p>
-                        The signal can no longer be ignored. The biggest players in the world are noticing the purple energy. Monad Floki becomes inevitable.
+                        The signal can no longer be ignored. The biggest players in the world are noticing the purple energy. <strong>Purple Shiba</strong> becomes inevitable.
                     </p>
                 </div>
                 <div class="saga-image-box">
-                    <img src="3.png" alt="Floki with Elon and Trump" class="saga-img">
+                    <img src="3.png" alt="Shiba Global" class="saga-img">
                 </div>
             </div>
         </section>
@@ -262,11 +324,11 @@
                 <div class="saga-text">
                     <h2>PART IV: FULL SEND</h2>
                     <p>
-                        The charts only go one way. We prefer our rides purple and fast. Buckle up, raiders. We are leaving the atmosphere.
+                        The charts only go one way. We prefer our rides purple and fast. Buckle up, raiders. $PURSHI is leaving the atmosphere.
                     </p>
                 </div>
                 <div class="saga-image-box">
-                    <img src="4.png" alt="Floki in Purple Car" class="saga-img">
+                    <img src="4.png" alt="Purple Lambo" class="saga-img">
                 </div>
             </div>
         </section>
@@ -274,13 +336,13 @@
         <section class="saga-section">
             <div class="container saga-content">
                 <div class="saga-text">
-                    <h2>PART V: VALHALLA</h2>
+                    <h2>PART V: MONAD VALHALLA</h2>
                     <p>
-                        The destination for all true diamond hands. When the raid is over, we feast. This is the Monad lifestyle.
+                        The destination for all true diamond hands. When the raid is over, we feast. This is the Purple Shiba lifestyle.
                     </p>
                 </div>
                 <div class="saga-image-box">
-                    <img src="5.png" alt="Floki on Yacht Party" class="saga-img">
+                    <img src="5.png" alt="Shiba Party" class="saga-img">
                 </div>
             </div>
         </section>
@@ -297,12 +359,26 @@
 
     <footer>
         <div class="container">
-            <p>$mFLOKI IS A MEME COIN FOR ENTERTAINMENT PURPOSES ONLY.</p>
-            <p>&copy; 2025 THE MONAD VIKINGS.</p>
+            <p>$PURSHI IS A MEME COIN FOR ENTERTAINMENT PURPOSES ONLY.</p>
+            <p>&copy; 2025 THE PURPLE SHIBA COMMUNITY.</p>
         </div>
     </footer>
 
     <script>
+        // Função do Loading Screen
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            const body = document.body;
+
+            // Simula um tempo mínimo para ver o logo (opcional, pode remover o setTimeout se quiser instantâneo ao carregar)
+            setTimeout(() => {
+                preloader.style.opacity = '0';
+                preloader.style.visibility = 'hidden';
+                body.classList.remove('loading');
+            }, 1500); // 1.5 segundos de delay para efeito dramático
+        });
+
+        // Função de Copiar CA
         function copyCA() {
             const caText = document.getElementById('ca-text').innerText;
             navigator.clipboard.writeText(caText);
